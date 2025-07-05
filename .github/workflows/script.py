@@ -27,7 +27,7 @@ async def handler(event):
             print("Сообщение не содержит ключевую фразу, пропущено.")
 
 async def main():
-    await client.start()
+    await client.connect()
     print("Бот запущен и слушает новые сообщения...")
     await client.run_until_disconnected()
 
