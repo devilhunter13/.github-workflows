@@ -30,6 +30,6 @@ jobs:
           API_HASH: ${{ secrets.API_HASH }}
           PHONE: ${{ secrets.PHONE }}
           DESTINATION_CHAT: ${{ secrets.DESTINATION_CHAT }}
-          KEYWORD: ${{ secrets.KEYWORD }}
+          KEYWORDS: ${{ secrets.KEYWORDS }}
         run: |
           python script.py
