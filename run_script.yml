@@ -1,0 +1,35 @@
+name: Запуск пересылки Telegram сообщений
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # запуск каждый час; измените по необходимости
+  push:
+    branches:
+      - master
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout репозитория
+        uses: actions/checkout@v3
+
+      - name: Установка Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Установка зависимостей
+        run: |
+          pip install telethon
+
+      - name: Запуск скрипта
+        env:
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
+          PHONE: ${{ secrets.PHONE }}
+          DESTINATION_CHAT: ${{ secrets.DESTINATION_CHAT }}
+          KEYWORD: ${{ secrets.KEYWORD }}
+        run: |
+          python script.py
