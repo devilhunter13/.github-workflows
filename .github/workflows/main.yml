@@ -32,5 +32,4 @@ jobs:
           PHONE: ${{ secrets.PHONE }}
           DESTINATION_CHAT: ${{ secrets.DESTINATION_CHAT }}
           KEYWORDS: ${{ secrets.KEYWORDS }}
-        run: |
-          python script.py
+        run: python .github/workflows/script.py
