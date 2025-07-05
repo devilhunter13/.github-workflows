@@ -11,8 +11,7 @@ source_channels = ['@cashback_tyt', '@cash_wbb','https://t.me/+MoQXCLxvAO4xNDIy'
 destination_chat = 'https://t.me/+btpMy1KKyaIyNWRi'
 # Фраза для фильтрации сообщений
 keywords = ['Кэшбек 100 %',"Кешбек 100%",'кеш 100%','кэш 100%']  # замените на нужную вам фразу
-
-session_name = 'my_session'
+session_name = 'new_session'
 client = TelegramClient(session_name, api_id, api_hash)
 
 @client.on(events.NewMessage(chats=source_channels))
@@ -27,7 +26,7 @@ async def handler(event):
             print("Сообщение не содержит ключевую фразу, пропущено.")
 
 async def main():
-    await client.connect()
+    await client.start(phone=phone)
     print("Бот запущен и слушает новые сообщения...")
     await client.run_until_disconnected()
 
