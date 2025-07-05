@@ -12,7 +12,8 @@ destination_chat = 'https://t.me/+btpMy1KKyaIyNWRi'
 # Фраза для фильтрации сообщений
 keywords = ['Кэшбек 100 %',"Кешбек 100%",'кеш 100%','кэш 100%']  # замените на нужную вам фразу
 
-client = TelegramClient('session_name', api_id, api_hash)
+session_name = 'my_session'
+client = TelegramClient(session_name, api_id, api_hash)
 
 @client.on(events.NewMessage(chats=source_channels))
 async def handler(event):
