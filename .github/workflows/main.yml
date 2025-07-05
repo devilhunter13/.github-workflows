@@ -1,11 +1,12 @@
 name: Запуск пересылки Telegram сообщений
 
 on:
-  schedule:
-    - cron: '0 * * * *'  # запуск каждый час; измените по необходимости
   push:
     branches:
       - master
+  schedule:
+    - cron: '0 * * * *'  # запускать каждый час (можно изменить)
+  workflow_dispatch:     # добавьте эту строку для ручного запуска
 
 jobs:
   run-script:
